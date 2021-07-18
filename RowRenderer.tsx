@@ -6,6 +6,7 @@ import {
   FlatList,
   Pressable,
   ImageBackground,
+  ActivityIndicator,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {heights} from './contants';
@@ -77,6 +78,17 @@ export const _rowRenderer = (
     case 'category_selector':
       // you probably need to pass in a extended state to determine the selected category
       return <ShopeeCategorySelector data={data} />;
+    case 'loading_products':
+      return (
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            height: 40,
+          }}>
+          <ActivityIndicator size="large" color={brandColors.main} />
+        </View>
+      );
     default:
       return (
         <View style={{width: width, backgroundColor: 'cyan'}}>
@@ -228,6 +240,7 @@ const MainCategorySlider = ({data}) => {
                 borderColor: 'gray',
                 width: ICON_SIZE,
                 height: ICON_SIZE,
+                overflow: 'hidden',
               }}>
               <Image
                 source={{uri: v.icon}}
@@ -367,7 +380,7 @@ const BigBrandDiscount = ({data}) => {
             justifyContent: 'center',
           }}>
           <Text style={{color: '#D0011B', fontSize: 10}}>RM</Text>
-          <Text style={{color: '#D0011B'}}>{item.price.toFixed(2)}</Text>
+          <Text style={{color: '#D0011B'}}>{item.price}</Text>
         </View>
       </View>
     );
@@ -557,7 +570,7 @@ const ShockingSale = ({data}) => {
             paddingVertical: 4,
           }}>
           <Text style={{color: brandColors.main, fontSize: 10}}>RM</Text>
-          <Text style={{color: brandColors.main}}>{item.price.toFixed(2)}</Text>
+          <Text style={{color: brandColors.main}}>{item.price}</Text>
         </View>
         <View style={{flexDirection: 'row', justifyContent: 'center'}}>
           <View
