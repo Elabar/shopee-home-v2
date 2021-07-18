@@ -699,15 +699,13 @@ const Home = () => {
       <StickyContainer
         stickyHeaderIndices={[21]}
         applyWindowCorrection={_applyWindowCorrection}>
-        <AnimatedRecylerListView
+        <RecyclerListView
           dataProvider={_dataProvider}
           layoutProvider={_layoutProvider}
           rowRenderer={_rowRenderer}
           onScroll={scrollHandler}
+          renderAheadOffset={1000}
           scrollViewProps={{
-            style: {
-              // paddingTop: 75,
-            },
             showsVerticalScrollIndicator: false,
           }}
         />
