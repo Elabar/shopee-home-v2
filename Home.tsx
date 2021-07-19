@@ -208,7 +208,7 @@ const Home = () => {
             layoutProvider={_layoutProvider}
             rowRenderer={_rowRenderer}
             onScroll={scrollHandler}
-            renderAheadOffset={1000}
+            renderAheadOffset={Dimensions.get('window').height}
             extendedState={{isLoadingProducts: loadingProducts}}
             scrollViewProps={{
               showsVerticalScrollIndicator: false,
