@@ -13,7 +13,7 @@ import {ScrollEvent} from 'recyclerlistview/dist/reactnative/core/scrollcomponen
 import axios from 'axios';
 
 const dataProvider = new DataProvider((r1, r2) => {
-  return equal(r1, r2);
+  return !equal(r1, r2);
 });
 
 const baseURL = 'https://shopee-clone-v2.herokuapp.com/';
@@ -208,7 +208,7 @@ const Home = () => {
             layoutProvider={_layoutProvider}
             rowRenderer={_rowRenderer}
             onScroll={scrollHandler}
-            renderAheadOffset={Dimensions.get('window').height}
+            renderAheadOffset={400}
             extendedState={{isLoadingProducts: loadingProducts}}
             scrollViewProps={{
               showsVerticalScrollIndicator: false,
