@@ -2,12 +2,6 @@
 Ditched expo, migrated to RN.
 
 Performance:
-| SD 870                                        |
-|-----------------------------------------------|
-| [SD 870 Video](https://streamable.com/8nnmd2) |
-
-
-
-| SD 636                                        |
-|-----------------------------------------------|
-| [SD 636 Video](https://streamable.com/cr9maz) |
+| MTK6737 Quad core Cortex-A53 1.3GHz, 1GB RAM       |
+|----------------------------------------------------|
+| [Performance Video](https://streamable.com/i06mj4) |
