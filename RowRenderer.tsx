@@ -6,6 +6,7 @@ import {
   FlatList,
   Pressable,
   ImageBackground,
+  Image,
   ActivityIndicator,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -16,7 +17,6 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
 } from 'react-native-reanimated';
-import Image from 'react-native-fast-image';
 import equal from 'fast-deep-equal';
 const {width} = Dimensions.get('window');
 const AnimatedFlatlist = Animated.createAnimatedComponent(FlatList);
