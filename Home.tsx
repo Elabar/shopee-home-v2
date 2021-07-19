@@ -195,7 +195,7 @@ const Home = () => {
   // });
 
   return (
-    <View style={{flex: 1, backgroundColor: 'white', width: width}}>
+    <View style={{flex: 1, backgroundColor: '#F6F6F6', width: width}}>
       <NavigationHeader scrollPosY={currentScrollYPos} />
       {_dataProvider.getSize() > 0 && (
         <StickyContainer

@@ -69,6 +69,7 @@ export const _rowRenderer = (
           style={{
             flexDirection: 'row',
             padding: 10,
+            backgroundColor: 'white'
           }}>
           <Text style={{color: brandColors.main, fontWeight: 'bold'}}>
             {data.data}
@@ -133,7 +134,7 @@ const TopBanner = data => {
       style={{
         height: heights.TOP_BANNER_HEIGHT + data.EXTRA_PADDING_TOP,
         width,
-        backgroundColor: 'pink',
+        backgroundColor: brandColors.main,
       }}>
       <FlatList
         renderItem={renderTopBannerItem}
@@ -150,7 +151,7 @@ const TopBanner = data => {
 
 const WalletRow = data => {
   return (
-    <View style={{height: heights.WALLET_HEIGHT}}>
+    <View style={{height: heights.WALLET_HEIGHT, backgroundColor: 'white'}}>
       <View
         style={{
           marginHorizontal: 10,
@@ -290,6 +291,7 @@ const MainCategorySlider = ({data}) => {
       style={{
         height: heights.MAIN_CATEGORY_HEIGHT,
         width,
+        backgroundColor: 'white'
       }}>
       <AnimatedFlatlist
         renderItem={renderMainCategoryItem}
@@ -321,6 +323,7 @@ const PhotoPromo = ({data}) => {
         width,
         padding: 10,
         flexDirection: 'row',
+        backgroundColor: 'white'
       }}>
       {data?.data?.map((v, i) => {
         return (
@@ -620,6 +623,7 @@ const ShockingSale = ({data}) => {
       style={{
         height: heights.SHOCKING_SALE_HEIGHT,
         width,
+        backgroundColor: 'white'
       }}>
       <View
         style={{
@@ -757,6 +761,7 @@ const ShopeeMall = ({data}) => {
       style={{
         height: heights.SHOPEE_MALL_HEIGHT,
         width,
+        backgroundColor: 'white'
       }}>
       <View
         style={{
@@ -909,6 +914,7 @@ const ShopeeLive = ({data}) => {
       style={{
         height: heights.SHOPEE_LIVE_HEIGHT,
         width,
+        backgroundColor: 'white'
       }}>
       <View
         style={{
@@ -1017,6 +1023,7 @@ const ShopeeDealsTopUpsBills = ({data}) => {
       style={{
         height: heights.DEALS_TOP_UP_BILLS_HEIGHT,
         width,
+        backgroundColor: 'white'
       }}>
       <View
         style={{
@@ -1066,7 +1073,7 @@ const ShopeeTrendingSearch = ({data}) => {
   const BOX_HEIGHT = 70;
   const IMAGE_SIZE = 70 - 6 * 2;
   return (
-    <View style={{height: heights.TRENDING_SEARCH_HEIGHT, width}}>
+    <View style={{height: heights.TRENDING_SEARCH_HEIGHT, width, backgroundColor: 'white'}}>
       <View
         style={{
           flexDirection: 'row',
@@ -1134,7 +1141,7 @@ const ShopeeFeaturedCollection = ({data}) => {
           borderWidth: 0.5,
           overflow: 'hidden',
         }}>
-        <View>
+        <View style={{flex:1}}>
           <Image
             source={{uri: item.image}}
             style={{
@@ -1169,6 +1176,7 @@ const ShopeeFeaturedCollection = ({data}) => {
       style={{
         height: heights.FEATURED_COLLECTION_HEIGHT,
         width,
+        backgroundColor: 'white'
       }}>
       <View
         style={{
@@ -1269,7 +1277,7 @@ const ShopeeMainCategory = ({data}) => {
   };
 
   return (
-    <View style={{height: heights.MAIN_CATEGORIES_HEIGHT, width}}>
+    <View style={{height: heights.MAIN_CATEGORIES_HEIGHT, width, backgroundColor: 'white'}}>
       <View
         style={{
           flexDirection: 'row',
@@ -1376,14 +1384,42 @@ const ShopeeCategorySelector = ({data}) => {
 };
 
 const ShopeeProduct = ({data}) => {
+  const IMAGE_HEIGHT = Math.floor(heights.PRODUCT_HEIGHT * 0.7);
+  const PRODUCT_WIDTH = Math.floor(width / 2);
   return (
     <View
       style={{
         height: heights.PRODUCT_HEIGHT,
-        width: Math.floor(width / 2),
-        backgroundColor: '#9CA3AF',
+        width: PRODUCT_WIDTH,
+        // backgroundColor: '#9CA3AF',
       }}>
-      <View style={{backgroundColor: 'white', margin: 2, flex: 1}}></View>
+      <View
+        style={{
+          backgroundColor: 'white',
+          margin: 2,
+          flex: 1,
+          overflow: 'hidden',
+        }}>
+        <Image
+          style={{width: PRODUCT_WIDTH - 2 * 2, height: IMAGE_HEIGHT}}
+          source={{uri: data.data.image}}
+        />
+        <View style={{padding: 4, justifyContent: 'space-between', flex: 1}}>
+          <Text numberOfLines={2}>{data.data.label}</Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'flex-end',
+            }}>
+            <View style={{flexDirection: 'row', alignItems: 'flex-end'}}>
+              <Text style={{fontSize: 12, color: brandColors.main}}>RM</Text>
+              <Text style={{color: brandColors.main}}>{data.data.price}</Text>
+            </View>
+            <Text style={{fontSize: 10}}>{data.data.sold} sold</Text>
+          </View>
+        </View>
+      </View>
     </View>
   );
 };
